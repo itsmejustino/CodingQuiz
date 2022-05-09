@@ -19,12 +19,12 @@ for (var i = 0; i < questions.length; i++) {
 var startQuiz = document.querySelector('btn-primary')
 
 
-startQuiz.addEventListener('click', function(
-     
-    {
-
+var startTimer = setInterval(function () {
+    countdown--;
+      timerEL.textContent = countdown;
+    if (countdown <= 0) {
+      clearInterval(startTimer);
+      
+    }
     
-
-
-});
-)
+  }, 1000);
