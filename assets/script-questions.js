@@ -1,6 +1,7 @@
+
+//Timer
 var timerEL = document.getElementById("time-left");
 var countdown = 15;
-
 
 var startTimer = setInterval(function () {
   countdown--;
@@ -9,47 +10,86 @@ var startTimer = setInterval(function () {
     clearInterval(startTimer);
   }
   if (countdown <= 5) {
-   timerEL.setAttribute("style", "color: red;")
+    timerEL.setAttribute("style", "color: red;");
   }
 }, 1000);
 
-
 //score tracker
 var score = 0;
-//start question 1
-var question1 = document.getElementById('question')
-question1.textContent = "What does HTML mean?";
-
-if(countdown == 0){
-score = 0;
+if (countdown == 0) {
+  score;
 }
-//question1 choices
-var questionChoice1= document.getElementById('choice-1')
-var questionChoice2 = document.getElementById('choice-2')
-var questionChoice3 = document.getElementById('choice-3')
-var questionChoice4 = document.getElementById('choice-4')
 
-questionChoice1.textContent = "Happy Text Makes Language"
-questionChoice2.textContent = "Hyper Text Makes Language"
-questionChoice3.textContent = "Hyper Text Markup Language"
-questionChoice4.textContent = "Hyper Testing Made Language"
- 
-var correctAnswer = document.querySelector(".btn-btn3").addEventListener("click", function()
-{
-score++;
 
-console.log(score);
+//question tracker
+
+var Counter = document.getElementById("question-counter-up");
+var totalQuestionCounter = document.getElementById("question-counter-left");
+var nextButton = document.getElementById("next-button");
+
+
+startQuiz();
+
+totalQuestionCounter.textContent = "4 ";
+var questionCounter = 1;
+Counter.textContent = questionCounter;
+nextButton.addEventListener("click", () => {
+  questionCounter++;
+  console.log(questionCounter);
+  Counter.textContent = questionCounter;
+  countdown = 15;
+  shownNextQuestion()
 });
 
-var incorrectAnswers = document.querySelectorAll(".btn-btn2, .btn-btn4, .btn-btn1");
 
-incorrectAnswers.forEach(function(button){
-button.addEventListener("click", () =>
-{     score--
-    console.log(score);}
+//start game function
+var questionEl= document.getElementById("question");
+var answerButtons = document.getElementById("button");
 
-)
-});
+
+let randomQuestions, currentQuestionsIndex 
+
+function startQuiz(){
+console.log("Quiz started")
+randomQuestions = questions.sort(() => {return 0.5 - Math.random() });
+currentQuestionsIndex = 0;
+}
+
+
+function startNextQuestion(){
+showNextQuestion(shuffledQuestions[currentQuestionsIndex])
+
+}
+
+function showNextQuestion(question){
+ questionEl.innerText = question.question
+
+}
+//question and answer bank
+var questions = [
+  //question 1
+  {
+    question: "What does CSS mean?",
+
+    answers: [ {text: "Color Sample Sheet", correct: false}, 
+     {text:"Cool Styling Sample", correct: false},
+     {text:"Couples Stlye Sheet", correct: false}, 
+     {text:"Cascading Style Sheet", correct: true}]
+
+  },
+  //question 2
+  {
+    question: "What does HTML mean?",
+
+    answers: [ {text: "Color Sample Sheet", correct: false}, 
+     {text:"Cool Styling Sample", correct: false},
+     {text:"Couples Stlye Sheet", correct: false}, 
+     {text:"Cascading Style Sheet", correct: true}]
+
+  }
+  
+];
+
 
 
 
@@ -59,4 +99,3 @@ button.addEventListener("click", () =>
 //start question 3
 //start question 4
 //start question 5
-
