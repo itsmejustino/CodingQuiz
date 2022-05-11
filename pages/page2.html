@@ -11,7 +11,7 @@
     <section class="question-box">
       <div class="question-hero">
         <h3 class="question-box-title">Coding Quiz</h3>
-        <h4 class="question-counter">Question _out of _</h4>
+        <h4 class="question-counter">Question <span id="question-counter-up">_</span> out of <span id = "question-counter-left">_</span></h4>
         <h5 class="timer-box-title" id="timer">Time Left: <span id="time-left"> </span></h5>
       </div>
 
@@ -21,16 +21,16 @@
         </p>
 
         <div class="buttons">
-          <button class="btn-btn1">1. <span id="choice-1">  </span></button>
+          <button class="btn-btn1" id="answer-btn">1. </button>
 
-          <button class="btn-btn2">2.<span id="choice-2"> </span></button>
+          <button class="btn-btn2" id="answer-btn">2.</button>
 
-          <button class="btn-btn3">3.<span id="choice-3"> </span></button>
+          <button class="btn-btn3" id="answer-btn">3.</button>
 
-          <button class="btn-btn4">4.<span id="choice-4"> </span></button>
+          <button class="btn-btn4" id="answer-btn">4.</button>
         </div>
         <nav class="next-button-container">
-            <button class="next-button"> <span id="next"> Next Question </span></button>
+            <button id="next-button" > <span id="next"> Next Question </span></button>
         
         </nav>
       </div>
