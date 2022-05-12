@@ -29,8 +29,7 @@ totalQuestionCounter.textContent = 4;
 var questionCounter = 1;
 Counter.textContent = questionCounter;
 
-
-//function executes on click of next question button. 
+//function executes on click of next question button.
 //question counter increases by 1, showNextQuestion, and showAnswers execute on click.
 function questionTracker() {
   nextButton.addEventListener("click", () => {
@@ -46,6 +45,8 @@ function questionTracker() {
     displayAnswers();
   });
 }
+
+function endQuiz() {}
 
 //start game function
 var questionEl = document.getElementById("question");
@@ -65,11 +66,11 @@ function startQuiz() {
   displayQuestion();
   displayAnswers();
   questionTracker();
+  chooseAnswer();
 }
 
-
-function displayQuestion(){
-questionEl.innerText = questions[currentQuestionsIndex].question;
+function displayQuestion() {
+  questionEl.innerText = questions[currentQuestionsIndex].question;
 }
 
 //function displays question from answer bank array
@@ -82,30 +83,42 @@ function displayAnswers() {
 }
 
 function chooseAnswer() {
-  if (
-    questions[currentQuestionsIndex].answer1 ==
-    questions[currentQuestionsIndex].correctAnswer
-  ) {
-    console.log("Correct!");
+  answerButton1.addEventListener("click", checkAnswer1);
+  answerButton2.addEventListener("click", checkAnswer2);
+  answerButton3.addEventListener("click", checkAnswer3);
+  answerButton4.addEventListener("click", checkAnswer4);
+}
+
+function checkAnswer1() {
+  if (answerButton1.innerText == questions[currentAnswersIndex].correctAnswer) {
+    console.log("true!");
+  } else {
+    console.log("false");
   }
-  if (
-    questions[currentQuestionsIndex].answer2 ==
-    questions[currentQuestionsIndex].correctAnswer
-  ) {
-    console.log("Correct!");
+}
+
+function checkAnswer2() {
+  if (answerButton2.innerText == questions[currentAnswersIndex].correctAnswer) {
+    console.log("true!");
+  } else {
+    console.log("false");
   }
-  if (
-    questions[currentQuestionsIndex].answer3 ==
-    questions[currentQuestionsIndex].correctAnswer
-  ) {
-    console.log("Correct!");
+}
+function checkAnswer3() {
+  if (answerButton3.innerText == questions[currentAnswersIndex].correctAnswer) {
+    console.log("true!");
+  } else {
+    console.log("false");
   }
-  if (
-    questions[currentQuestionsIndex].answer4 ==
-    questions[currentQuestionsIndex].correctAnswer
-  ) {
-    console.log("Correct!");
+
+}
+function checkAnswer4() {
+  if (answerButton4.innerText == questions[currentAnswersIndex].correctAnswer) {
+    console.log("true!");
+  } else {
+    console.log("false");
   }
+
 }
 
 //question and answer bank
@@ -118,7 +131,7 @@ var questions = [
     answer2: "Cool Styling Sample",
     answer3: "Couples Stlye Sheet",
     answer4: "Cascading Style Sheet",
-    correctAnswer: "Cascading Style Sheet"
+    correctAnswer: "Cascading Style Sheet",
   },
   //question 2
   {
@@ -128,7 +141,7 @@ var questions = [
     answer2: "Hyper Text Markup Language",
     answer3: "Helpful Text Made Language",
     answer4: "Have Made Text Language",
-    correctAnswer: "Hyper Text Markup Language"
+    correctAnswer: "Hyper Text Markup Language",
   },
 
   {
@@ -138,17 +151,18 @@ var questions = [
     answer2: "6",
     answer3: "8",
     answer4: "12",
-    correctAnswer: "8"
+    correctAnswer: "8",
   },
 
   {
-    question: "What does HTML mean?",
+    question:
+      "What is the best way to increase programming productivity when completing a project?",
 
-    answer1: "Hinted Text Sheet",
-    answer2: "Hyper Text Markup Language",
-    answer3: "Helpful Text Made Language",
-    answer4: "Have Made Text Language",
-    correctAnswer: "Hyper Text Markup Language"
+    answer1: "Spend all day working",
+    answer2: "Psuedo-code and use your resources",
+    answer3: "Tackle the code head on and dont document",
+    answer4: "Rely on examples to finish the project",
+    correctAnswer: "Psuedo-code and use your resources",
   },
 ];
 
