@@ -28,7 +28,7 @@ var totalQuestionCounter = document.getElementById("question-counter-left");
 var nextButton = document.getElementById("next-button");
 
 
-startQuiz();
+
 
 totalQuestionCounter.textContent = "4 ";
 var questionCounter = 1;
@@ -38,33 +38,50 @@ nextButton.addEventListener("click", () => {
   console.log(questionCounter);
   Counter.textContent = questionCounter;
   countdown = 15;
-  shownNextQuestion()
+  showNextQuestion()
 });
-
 
 //start game function
 var questionEl= document.getElementById("question");
-var answerButtons = document.getElementById("button");
+var answerButtons = document.getElementById("answer-btn");
 
 
-let randomQuestions, currentQuestionsIndex 
+let randomQuestions; 
+let currentQuestionsIndex = 0;
 
 function startQuiz(){
 console.log("Quiz started")
-randomQuestions = questions.sort(() => {return 0.5 - Math.random() });
-currentQuestionsIndex = 0;
+randomQuestions = questions.sort(() => Math.random() - .5);
+currentQuestionsIndex;
 }
 
 
 function startNextQuestion(){
-showNextQuestion(shuffledQuestions[currentQuestionsIndex])
-
+showNextQuestion(randomQuestions[currentQuestionsIndex])
 }
 
 function showNextQuestion(question){
- questionEl.innerText = question.question
+ questionEl.textContent = questions.question;
+ question.answers.forEach( answers => {
+let button= document.createElement("button");
+button.innerText = answers.text
+button.classList.add('btn')
+if (answers.correct) {
+button.dataset.correct = answers.correct
 
 }
+ button.addEventListener('click', chooseAnswer)
+ answerButtonElement.appendChild(button)
+ })
+
+}
+
+function chooseAnswer(e){
+
+
+}
+
+
 //question and answer bank
 var questions = [
   //question 1
@@ -89,13 +106,3 @@ var questions = [
   }
   
 ];
-
-
-
-
-
-
-//start question 2
-//start question 3
-//start question 4
-//start question 5
