@@ -43,18 +43,29 @@ nextButton.addEventListener("click", () => {
 
 //start game function
 var questionEl= document.getElementById("question");
-var answerButtons = document.getElementById("answer-btn");
-
+var answerButton1 = document.getElementById("btn-btn1");
+var answerButton2 = document.getElementById("btn-btn2");
+var answerButton3 = document.getElementById("btn-btn3");
+var answerButton4 = document.getElementById("btn-btn4");
 
 let randomQuestions; 
 let currentQuestionsIndex = 0;
+
+
 
 function startQuiz(){
 console.log("Quiz started")
 randomQuestions = questions.sort(() => Math.random() - .5);
 currentQuestionsIndex;
+displayQuestions();
 }
 
+//function displays question from answer bank array
+function displayQuestions(){
+  console.log(questions[currentQuestionsIndex].answer1)
+answerButton1.innerText = questions[currentQuestionsIndex].answer1
+
+}
 
 function startNextQuestion(){
 showNextQuestion(randomQuestions[currentQuestionsIndex])
@@ -88,21 +99,26 @@ var questions = [
   {
     question: "What does CSS mean?",
 
-    answers: [ {text: "Color Sample Sheet", correct: false}, 
-     {text:"Cool Styling Sample", correct: false},
-     {text:"Couples Stlye Sheet", correct: false}, 
-     {text:"Cascading Style Sheet", correct: true}]
+    answer1:"Color Sample Sheet", 
+    answer2:"Cool Styling Sample", 
+    answer3:"Couples Stlye Sheet", 
+    answer4:"Cascading Style Sheet",
+    correctanswer: "Cascading Style Sheet"
+    
 
   },
   //question 2
   {
-    question: "What does HTML mean?",
+    question: "What does CSS mean?",
 
-    answers: [ {text: "Color Sample Sheet", correct: false}, 
-     {text:"Cool Styling Sample", correct: false},
-     {text:"Couples Stlye Sheet", correct: false}, 
-     {text:"Cascading Style Sheet", correct: true}]
+    answer1:"Color Sample Sheet", 
+    answer2:"Cool Styling Sample", 
+    answer3:"Couples Stlye Sheet", 
+    answer4:"Cascading Style Sheet",
+    correctanswer: "Cascading Style Sheet"
+    
 
-  }
-  
+  },
 ];
+
+startQuiz();
