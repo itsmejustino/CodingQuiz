@@ -16,8 +16,8 @@ var startTimer = setInterval(() => {
   }
 
   if (countdown <= 0) {
-    endQuiz();
     clearInterval(startTimer);
+    endQuiz();
   }
   if (countdown <= 5) {
     timerEL.setAttribute("style", "color: red;");
@@ -84,12 +84,16 @@ function endQuiz() {
 //start game function
 
 function nextQuestion() {
-  questionCounter++;
-  currentQuestionsIndex++;
-  currentAnswersIndex++;
-  Counter.textContent = questionCounter;
-  displayQuestion();
-  displayAnswers();
+  if (questionCounter < totalQuestionCounter.textContent) {
+    questionCounter++;
+    currentQuestionsIndex++;
+    currentAnswersIndex++;
+    Counter.textContent = questionCounter;
+    displayQuestion();
+    displayAnswers();
+  } else {
+    return;
+  }
 }
 var questionEl = document.getElementById("question");
 var answerButton1 = document.getElementById("btn-btn1");
@@ -158,7 +162,6 @@ function checkAnswer3() {
     localStorage.setItem("score:", score);
     nextQuestion();
     console.log("false");
-    
   }
 }
 function checkAnswer4() {
@@ -173,7 +176,6 @@ function checkAnswer4() {
     localStorage.setItem("score:", score);
     nextQuestion();
     console.log("false");
-    
   }
 }
 
@@ -234,7 +236,7 @@ if (countdown == 0) {
   score;
 }
 
-userNameEvent.addEventListener("submit", scoreTracker);
+//userNameEvent.addEventListener("submit", scoreTracker);
 
 function scoreTracker() {
   var li = document.createElement("<li>");
