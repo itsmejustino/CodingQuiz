@@ -8,17 +8,16 @@ var questionCounter = 1;
 
 var countdown = 60;
 var startTimer = setInterval(() => {
-  
   countdown--;
   timerEL.textContent = countdown;
-  if(questionCounter == totalQuestionCounter.textContent)
-  {
-    nextButton.innerText = "End Quiz"
-    nextButton.addEventListener("click",endQuiz);}
+  if (questionCounter == totalQuestionCounter.textContent) {
+    nextButton.innerText = "End Quiz";
+    nextButton.addEventListener("click", endQuiz);
+  }
 
   if (countdown <= 0) {
-    clearInterval(startTimer);
     endQuiz();
+    clearInterval(startTimer);
   }
   if (countdown <= 5) {
     timerEL.setAttribute("style", "color: red;");
@@ -28,12 +27,6 @@ var startTimer = setInterval(() => {
     timerEL.setAttribute("style", "color: green;");
   }
 }, 1000);
-
-//score tracker
-var score = 0;
-if (countdown == 0) {
-  score;
-}
 
 //question tracker
 
@@ -48,7 +41,7 @@ autoContinue = () => {
   Counter.textContent = questionCounter;
   displayQuestion();
   displayAnswers();
-}
+};
 
 //function executes on click of next question button.
 //question counter increases by 1, showNextQuestion, and showAnswers execute on click.
@@ -83,32 +76,26 @@ function startQuiz() {
 
 //Quiz end function
 
-
-
 function endQuiz() {
-  
-    window.location.href= '../pages/page3.html';
+  window.location.href = "../pages/page3.html";
   clearTimeout(startTimer);
-  
 }
 
 //start game function
 
-function nextQuestion(){
+function nextQuestion() {
   questionCounter++;
-    currentQuestionsIndex++;
-    currentAnswersIndex++;
-    Counter.textContent = questionCounter;
-    displayQuestion();
-    displayAnswers();
-  
+  currentQuestionsIndex++;
+  currentAnswersIndex++;
+  Counter.textContent = questionCounter;
+  displayQuestion();
+  displayAnswers();
 }
 var questionEl = document.getElementById("question");
 var answerButton1 = document.getElementById("btn-btn1");
 var answerButton2 = document.getElementById("btn-btn2");
 var answerButton3 = document.getElementById("btn-btn3");
 var answerButton4 = document.getElementById("btn-btn4");
-
 
 function displayQuestion() {
   questionEl.innerText = questions[currentQuestionsIndex].question;
@@ -134,12 +121,14 @@ function checkAnswer1() {
   if (answerButton1.innerText == questions[currentAnswersIndex].correctAnswer) {
     console.log("true!");
     score++;
+    localStorage.setItem("score:", score);
     nextQuestion();
     console.log("score: " + score);
   } else {
     countdown -= 4;
+    localStorage.setItem("score:", score);
+    nextQuestion();
     console.log("false");
-    console.log("score: " + score);
   }
 }
 
@@ -147,36 +136,44 @@ function checkAnswer2() {
   if (answerButton2.innerText == questions[currentAnswersIndex].correctAnswer) {
     console.log("true!");
     score++;
+    localStorage.setItem("score:", score);
     nextQuestion();
     console.log("score: " + score);
   } else {
     countdown -= 4;
+    localStorage.setItem("score:", score);
+    nextQuestion();
     console.log("false");
-    console.log("score: " + score);
   }
 }
 function checkAnswer3() {
   if (answerButton3.innerText == questions[currentAnswersIndex].correctAnswer) {
     console.log("true!");
     score++;
+    localStorage.setItem("score:", score);
     nextQuestion();
     console.log("score: " + score);
   } else {
     countdown -= 4;
+    localStorage.setItem("score:", score);
+    nextQuestion();
     console.log("false");
-    console.log("score: " + score);
+    
   }
 }
 function checkAnswer4() {
   if (answerButton4.innerText == questions[currentAnswersIndex].correctAnswer) {
     console.log("true!");
     score++;
+    localStorage.setItem("score:", score);
     nextQuestion();
     console.log("score: " + score);
   } else {
     countdown -= 4;
+    localStorage.setItem("score:", score);
+    nextQuestion();
     console.log("false");
-    console.log("score: " + score);
+    
   }
 }
 
@@ -226,3 +223,22 @@ var questions = [
 ];
 
 startQuiz();
+
+//score tracker
+var score = 0;
+var userScore = document.querySelector(".score-value");
+var userNameEvent = document.querySelector(".scorer-name-event");
+var userName = document.querySelector(".scorer.name");
+var scoreList = document.querySelector(".highscore-list");
+if (countdown == 0) {
+  score;
+}
+
+userNameEvent.addEventListener("submit", scoreTracker);
+
+function scoreTracker() {
+  var li = document.createElement("<li>");
+  userName.innerText = "";
+  li.textContent = userName.innerText;
+  scoreList.appendChild(li);
+}
