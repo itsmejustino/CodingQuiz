@@ -35,7 +35,7 @@ var startTimer = setInterval(() => {
 
 //question tracker
 
-totalQuestionCounter.textContent = 4
+totalQuestionCounter.textContent = 5
 
 Counter.textContent = questionCounter
 
@@ -129,7 +129,7 @@ var questions = [
     answer3: 'Tackle the code head on and dont document',
     answer4: 'Freak out',
     correctAnswer: 'Psuedo-code and use your resources'
-  }
+  },
   //question 5
   {
     question:
