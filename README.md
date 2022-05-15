@@ -1,6 +1,6 @@
 # Coding Quiz
 
-This is program is a timed coding quiz. You will have 60 seconds per question. When the question is answered incorrectly time will be deducted and score not recorded. The game will end when the timer reaches 0 or the end quiz button is selected when the last question is reached. You will record your score with your initials to the scores page.
+This is program is a timed coding quiz. You will have 60 seconds to complete the quiz. When the question is answered incorrectly time will be deducted and score not recorded. The game will end when the timer reaches 0 or the end quiz button is selected when the last question is reached. You will record your score with your initials to the scores page.
 
 # Demo Pictures
 ![CQ-1](https://user-images.githubusercontent.com/97544979/168483526-f2fc14c6-d6a1-4b03-b77a-061f1c8dc18e.PNG)
