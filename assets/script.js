@@ -9,7 +9,7 @@ var scoreList = document.querySelector(".highscore");
 
 let scoreBtn = document.querySelector(".add-score-btn");
 var storedScore = localStorage.getItem("score:");
-
+//on click event to add score from localStorage
 scoreBtn.addEventListener("click", function scoreTracker() {
   var text = userName.value;
   console.log(scoreBtn);

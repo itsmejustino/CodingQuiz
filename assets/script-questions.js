@@ -1,4 +1,9 @@
+
+//set score var. collected data in this .js form. used again in script-questions
+var score = 0
+
 //Timer
+
 var timerEL = document.getElementById('time-left')
 
 var Counter = document.getElementById('question-counter-up')
@@ -165,7 +170,7 @@ function chooseAnswer () {
   answerButton4.addEventListener('click', checkAnswer4)
 }
 
-var score = 0
+
 
 function checkAnswer1 () {
   if (answerButton1.innerText == questions[currentAnswersIndex].correctAnswer) {
