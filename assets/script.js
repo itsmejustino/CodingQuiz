@@ -21,3 +21,6 @@ scoreBtn.addEventListener("click", function scoreTracker() {
   console.log(window.localStorage)
 
 });
+
+
+
