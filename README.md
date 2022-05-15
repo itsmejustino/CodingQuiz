@@ -5,4 +5,4 @@ This is program is a timed coding quiz. You will have 60 seconds to complete the
 # Demo Pictures
 ![CQ-1](https://user-images.githubusercontent.com/97544979/168483526-f2fc14c6-d6a1-4b03-b77a-061f1c8dc18e.PNG)
 ![CQ-2](https://user-images.githubusercontent.com/97544979/168483534-af62b1e8-4ef0-498e-9ab4-b9cb8fe15293.PNG)
-![CQ-3](https://user-images.githubusercontent.com/97544979/168483536-19712a29-f88d-4676-acf2-01542ab4dfec.PNG)
+                  ![CQ-3](https://user-images.githubusercontent.com/97544979/168483536-19712a29-f88d-4676-acf2-01542ab4dfec.PNG)
