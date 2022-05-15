@@ -109,7 +109,7 @@ var questions = [
     answer4: 'Have Made Text Language',
     correctAnswer: 'Hyper Text Markup Language'
   },
-
+//question 3
   {
     question: 'How many bits in a byte?',
 
@@ -119,19 +119,30 @@ var questions = [
     answer4: '12',
     correctAnswer: '8'
   },
-
+//question 4
   {
     question:
       'What is the best way to increase programming productivity when completing a project?',
 
-    answer1: 'Spend all day working',
+    answer1: 'Spend all day working and burn-out',
     answer2: 'Psuedo-code and use your resources',
     answer3: 'Tackle the code head on and dont document',
-    answer4: 'Rely on examples to finish the project',
+    answer4: 'Freak out',
     correctAnswer: 'Psuedo-code and use your resources'
   }
-]
+  //question 5
+  {
+    question:
+      'What is the definition of object oriented programming?',
 
+    answer1: 'OOP (Object Oriented Programming) is a cleaner programming that relys on strings and syntax',
+    answer2: 'A computer programming model that organizes software design around data, or objects, rather than functions and logic',
+    answer3: 'Programming that uses JavaScript',
+    answer4: 'Programming that focuses on the use of objects to improve performance',
+    correctAnswer: 'A computer programming model that organizes software design around data, or objects, rather than functions and logic'
+  }
+]
+//next question function used on selected answer to continue to next question
 function nextQuestion () {
   if (questionCounter < totalQuestionCounter.textContent) {
     questionCounter++
@@ -171,7 +182,7 @@ function chooseAnswer () {
 }
 
 
-
+//check answers for correctAnswer
 function checkAnswer1 () {
   if (answerButton1.innerText == questions[currentAnswersIndex].correctAnswer) {
     console.log('true!')
@@ -180,7 +191,7 @@ function checkAnswer1 () {
     nextQuestion()
     console.log('score ' + score)
   } else {
-    countdown -= 4
+    countdown -= 10
     localStorage.setItem('score', score)
     nextQuestion()
     console.log('false')
@@ -195,7 +206,7 @@ function checkAnswer2 () {
     nextQuestion()
     console.log('score' + score)
   } else {
-    countdown -= 4
+    countdown -= 10
     localStorage.setItem('score', score)
     nextQuestion()
     console.log('false')
@@ -209,7 +220,7 @@ function checkAnswer3 () {
     nextQuestion()
     console.log('score' + score)
   } else {
-    countdown -= 4
+    countdown -= 10
     localStorage.setItem('score', score)
     nextQuestion()
     console.log('false')
@@ -223,7 +234,7 @@ function checkAnswer4 () {
     nextQuestion()
     console.log('score' + score)
   } else {
-    countdown -= 4
+    countdown -= 10
     localStorage.setItem('score', score)
     nextQuestion()
     console.log('false')
